@@ -49,7 +49,7 @@ public class Main {
                     case "9" -> {
                         sprava.ulozKonec();
                         System.out.println("Ukonceno.");
-                        sc.close(); // Oprava zluteno varovani (Resource leak)
+                        sc.close();
                         return;
                     }
                     default -> System.out.println("Neplatna volba.");
