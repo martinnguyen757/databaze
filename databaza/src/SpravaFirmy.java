@@ -46,7 +46,7 @@ public class SpravaFirmy {
 
     public boolean smaz(int id) {
         if (databaze.remove(id) == null) return false;
-        databaze.values().forEach(z -> z.odstranSpolupraci(id)); // Kaskádové mazání
+        databaze.values().forEach(z -> z.odstranSpolupraci(id)); 
         return true;
     }
 
@@ -56,7 +56,7 @@ public class SpravaFirmy {
     public String ziskejStatistiky() {
         if (databaze.isEmpty()) return "Zadna data.";
         
-        // Využití pokročilého Stream API pro nalezení nejčastější úrovně
+        
         String prevazujici = databaze.values().stream()
                 .flatMap(z -> z.getSeznamSpolupraci().stream())
                 .collect(Collectors.groupingBy(Spoluprace::uroven, Collectors.counting()))
