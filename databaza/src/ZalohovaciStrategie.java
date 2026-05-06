@@ -5,7 +5,7 @@ public interface ZalohovaciStrategie {
     void uloz(Map<Integer, Zamestnanec> databaze, int idCounter, String cesta) throws IOException;
     Object[] nacti(String cesta) throws IOException, ClassNotFoundException;
 
-    // Šablona pro SQL zálohu (jen simulace, nenarušuje běh in-memory programu)
+    
     default void zalohujDoSql(Map<Integer, Zamestnanec> databaze) {
         System.out.println("[SQL MODULE] Připojování k databázi...");
         System.out.println("[SQL MODULE] Proveden záložní DUMP " + databaze.size() + " záznamů.");
@@ -19,7 +19,7 @@ class BinarniZaloha implements ZalohovaciStrategie {
             oos.writeObject(databaze);
             oos.writeInt(idCounter);
         }
-        zalohujDoSql(databaze); // Volání SQL zálohy
+        zalohujDoSql(databaze); 
     }
 
     @Override
